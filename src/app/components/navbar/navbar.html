@@ -1,13 +1,42 @@
-<md-toolbar layout="row" layout-align="center center">
+<md-toolbar class="md-whiteframe-2dp">
 
-  <md-button href="https://github.com/Swiip/generator-gulp-angular">Gulp Angular</md-button>
+  <div class="md-toolbar-tools">
 
-  <section flex layout="row" layout-align="left center">
-    <md-button href="#" class="md-raised">Home</md-button>
-    <md-button href="#" class="md-raised">About</md-button>
-    <md-button href="#" class="md-raised">Contact</md-button>
-  </section>
+    <md-button class="md-icon-button" aria-label="Menu Lateral" hide-gt-sm="gt-sm">
+      <md-icon>menu</md-icon>
+    </md-button>
 
-  <md-button class="acme-navbar-text">Application was created {{ vm.relativeDate }}.</md-button>
+    <h2 flex md-truncate>Toolbar with Disabled/Enabled Icon Buttons</h2>
 
+    <md-button class="doc-button" aria-label="Ir para documentação">
+      Ir para documentação
+    </md-button>
+
+    <md-button class="md-icon-button" aria-label="Mais opções">
+      <md-icon>more_vert</md-icon>
+    </md-button>
+
+    <md-menu>
+      <md-button class="md-icon-button user-avatar" ng-click="$mdOpenMenu()" aria-label="Informações Pessoais">
+        <img ng-src="http://www.gravatar.com/avatar/00000000000000000000000000000000?s=50" alt="Minha Foto" />
+      </md-button>
+      <md-menu-content>
+        <md-menu-item>
+          <span class="user-avatar">
+            <img ng-src="http://www.gravatar.com/avatar/00000000000000000000000000000000?s=50" alt="Minha Foto" />
+          </span>
+          <div>
+            <span>{{vm.user.name}}</span>
+            <br/>
+            <span>{{vm.user.email}}</span>
+          </div>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item>
+          <md-button aria-label="Logout">Sair</md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+  </div>
 </md-toolbar>

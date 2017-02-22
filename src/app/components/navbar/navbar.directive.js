@@ -3,29 +3,24 @@
 
   angular
     .module('templateWeb')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('appNavbar', appNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
-    var directive = {
+  function appNavbar() {
+    return {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
       scope: {
-          creationDate: '='
+        user: '='
       },
       controller: NavbarController,
       controllerAs: 'vm',
       bindToController: true
     };
 
-    return directive;
-
     /** @ngInject */
-    function NavbarController(moment) {
+    function NavbarController() {
       var vm = this;
-
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
     }
   }
 
