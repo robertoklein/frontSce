@@ -1,0 +1,19 @@
+// Corrindo scroll quando esconde e mostra o sidenav
+md-sidenav md-content {
+  overflow: hidden;
+}
+
+//https://github.com/angular/material/issues/9425
+
+md-sidenav.md-closed.md-locked-open-add {
+  width: 0 !important;
+  min-width: 0 !important;
+  transform: translate3d(0%, 0, 0);
+}
+
+md-sidenav.md-closed.md-locked-open-add-active {
+  transition: width 0.3s cubic-bezier(0.55, 0, 0.55, 0.2), min-width 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  width: 256px !important;
+  min-width: 256px !important;
+  transform: translate3d(0%, 0, 0);
+}
