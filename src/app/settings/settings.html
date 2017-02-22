@@ -1,0 +1,29 @@
+<md-content>
+
+  <md-toolbar class="md-hue-1">
+    <div class="md-toolbar-tools">
+      <h2 flex md-truncate>Configurações</h2>
+    </div>
+  </md-toolbar>
+
+  <md-nav-bar
+    ng-init="currentNavItem = 'page1'"
+    md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links"
+    class="md-hue-1">
+    <md-nav-item md-nav-click="goto('page2')" name="page1">
+      Page One
+    </md-nav-item>
+    <md-nav-item md-nav-click="goto('page2')" name="page2">
+      Page Two
+    </md-nav-item>
+    <md-nav-item md-nav-click="goto('page3')" name="page3">
+      Page Three
+    </md-nav-item>
+  </md-nav-bar>
+
+  <div class="ext-content">
+    External content for `<span>{{currentNavItem}}</span>`.
+  </div>
+
+</md-content>
