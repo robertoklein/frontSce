@@ -62,16 +62,19 @@
     vm.toggleAll = toggleAll;
     vm.toggleUser = toggleUser;
     vm.isUserSelected = isUserSelected;
+    vm.isAllUsersSelected = isAllUsersSelected;
 
     function hasAnyUserSelected() {
       return vm.selectedUsers.length > 0;
     }
 
     function toggleAll() {
-      if (vm.selectedUsers.length == 0 || vm.selectedUsers.length < vm.users.length) {
-        vm.selectedUsers = vm.users;
-      } else {
+
+      if (isAllUsersSelected(vm.selectedUsers)) {
         vm.selectedUsers = [];
+      }
+      else {
+        vm.selectedUsers = vm.users.concat([]);
       }
     }
 
@@ -87,6 +90,10 @@
 
     function isUserSelected(user, selectedUsers) {
       return selectedUsers.indexOf(user) > -1;
+    }
+
+    function isAllUsersSelected(selectedUsers) {
+      return selectedUsers.length == vm.users.length;
     }
   }
 })();
