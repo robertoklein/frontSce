@@ -6,8 +6,9 @@
     .controller('SettingsController', SettingsController);
 
   /** @ngInject */
-  function SettingsController() {
+  function SettingsController($state) {
     var vm = this;
 
+    vm.currentNavItem = $state.current.name;
   }
 })();
