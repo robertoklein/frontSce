@@ -1,0 +1,60 @@
+<div class="md-padding">
+  <md-card>
+    <md-toolbar class="card-toolbar md-hue-2">
+      <div class="md-toolbar-tools card-toolbar-tools">
+        <md-input-container md-no-float class="search-field" flex>
+          <md-icon>search</md-icon>
+          <input ng-model="user.phone" type="text" placeholder="Pesquisar">
+        </md-input-container>
+        <md-button class="md-icon-button" ng-show="vm.hasAnyUserSelected()" aria-label="Remover usuários selecionados">
+          <md-icon>delete</md-icon>
+        </md-button>
+        <md-button class="md-raised md-accent" ui-sref="settings.users_form" aria-label="Adicionar Usuário">
+          Adicionar Usuário
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-table-container>
+      <table md-table>
+        <thead md-head>
+        <tr md-row>
+          <th md-column>
+            <md-checkbox ng-click="vm.toggleAll()" aria-label="Selecionar todos os usuários"></md-checkbox>
+          </th>
+          <th md-column>Nome</th>
+          <th md-column>Email</th>
+          <th md-column></th>
+        </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row ng-repeat="user in vm.users | limitTo: vm.limit: (vm.page - 1) * vm.limit">
+            <td md-cell>
+              <md-checkbox ng-click="vm.toggleUser(user)" ng-checked="vm.isUserSelected(user, vm.selectedUsers)" aria-label="Selecionar usuário {{user.name}}"></md-checkbox>
+            </td>
+            <td md-cell>{{user.name}}</td>
+            <td md-cell>{{user.email}}</td>
+            <td md-cell class="row-actions">
+              <md-button class="md-icon-button" aria-label="Visualizar usuário {{user.name}}" ng-click="">
+                <md-icon>info_outline</md-icon>
+              </md-button>
+              <md-menu>
+                <md-button aria-label="Mais opções para {{user.name}}" class="md-icon-button" ng-click="$mdMenu.open()">
+                  <md-icon>more_vert</md-icon>
+                </md-button>
+                <md-menu-content class="row-options-menu">
+                  <md-menu-item ng-repeat="item in ['Editar', 'Excluir']">
+                    <md-button>
+                      {{item}}
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <md-table-pagination md-limit="vm.limit" md-page="vm.page" md-total="{{vm.users.length}}" md-limit-options="vm.limitOptions" flex
+        md-label="{page: 'Página:', rowsPerPage: 'Itens por página:', of: 'de'}"></md-table-pagination>
+      </md-table-container>
+    </md-card>
+  </div>
