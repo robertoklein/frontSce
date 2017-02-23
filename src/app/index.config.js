@@ -20,7 +20,8 @@
     $mdThemingProvider.theme('default')
       .primaryPalette('grey', {
         'default': '800',
-        'hue-1': '600'
+        'hue-1': '600',
+        'hue-2': '100'
       })
       .accentPalette('blue');
   }
