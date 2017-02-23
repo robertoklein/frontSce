@@ -19,8 +19,19 @@
     };
 
     /** @ngInject */
-    function NavbarController() {
+    function NavbarController($mdSidenav) {
       var vm = this;
+
+      vm.toggleSidenavLeft = buildToggler('sidenav-left');
+
+      function buildToggler(navId) {
+        return fn;
+
+        function fn() {
+          $mdSidenav(navId).toggle();
+        }
+      }
+
     }
   }
 
