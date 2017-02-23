@@ -9,10 +9,5 @@
   function MainController() {
     var vm = this;
 
-    vm.user = {
-      name: "Anderson Rodrigo Davi",
-      email: 'anderson.davi@pti.org.br'
-    };
-
   }
 })();
