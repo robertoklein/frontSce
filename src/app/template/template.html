@@ -4,7 +4,34 @@
 
 <div layout="row" flex>
 
-  <app-sidenav></app-sidenav>
+  <!--
+   Não foi criado uma diretiva por problemas de layout.
+  -->
+  <md-sidenav
+    layout-fill
+    class="md-sidenav-left main-sidenav"
+    md-component-id="sidenav-left"
+    md-is-locked-open="$mdMedia('gt-sm')"
+    md-whiteframe="4">
+
+    <md-content layout-padding>
+      <md-list>
+        <md-list-item ui-sref="main">
+          <md-icon>home</md-icon>
+          <p>Visão Geral</p>
+        </md-list-item>
+        <md-list-item ui-sref="settings.users_list">
+          <md-icon>settings</md-icon>
+          <p>Configurações</p>
+        </md-list-item>
+        <md-list-item href="#/sdfasdfs">
+          <md-icon>people</md-icon>
+          <p>Usuários</p>
+        </md-list-item>
+      </md-list>
+    </md-content>
+
+  </md-sidenav>
 
   <md-content class="main-content" flex>
     <div ui-view></div>

@@ -1,3 +1,91 @@
 .main-content {
   background: inherit;
 }
+
+.md-toolbar-tools.card-toolbar-tools {
+  font-size: 14px;
+  height: 64px;
+  line-height: 64px;
+  min-height: 64px;
+  overflow-y: hidden;
+  position: inherit;
+}
+
+.md-toolbar-tools.card-toolbar-tools .search-field {
+  line-height: 36px;
+  height: 36px;
+  margin: 0;
+
+  .md-input {
+    line-height: 22px;
+    height: 36px;
+    border-color: transparent;
+  }
+}
+
+/*
+md-card {
+
+  table.md-table thead.md-head > tr.md-row {
+    height: 30px;
+    background-color: #f5f5f5;
+
+    .md-column {
+      border-top: 1px rgba(0, 0, 0, 0.12) solid;
+    }
+  }
+}*/
+
+
+.row-options-menu > md-menu-item {
+  min-height: 36px;
+  height: 36px;
+}
+
+md-card {
+
+  table.md-table td.md-cell.row-actions {
+    text-align: right;
+    padding: 0;
+    .md-button.md-icon-button {
+      margin: 0;
+    }
+  }
+
+  .row-actions > * {
+    visibility: hidden;
+  }
+
+  table.md-table tbody.md-body > tr.md-row:hover .row-actions > * {
+    visibility: visible;
+  }
+
+  table.md-table tbody.md-body > tr.md-row:hover {
+    background-color: #eee;
+  }
+}
+
+
+
+.main-sidenav {
+
+  max-width: 256px;
+  width: 256px;
+
+  md-content {
+    padding: 4px 0;
+  }
+
+  md-list {
+    padding: 0;
+  }
+
+  .md-button {
+    margin: 0;
+  }
+
+}
+
+.main-sidenav.md-locked-open {
+  z-index: 58;
+}

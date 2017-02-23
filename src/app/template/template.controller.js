@@ -6,7 +6,7 @@
     .controller('TemplateController', TemplateController);
 
   /** @ngInject */
-  function TemplateController() {
+  function TemplateController($scope, $mdSidenav) {
     var vm = this;
 
     vm.user = {
@@ -14,5 +14,9 @@
       email: 'anderson.davi@pti.org.br'
     };
 
+    $scope.$on('$stateChangeSuccess', function() {
+      var sidenavLeft = $mdSidenav('sidenav-left');
+      sidenavLeft.close();
+    });
   }
 })();
