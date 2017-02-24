@@ -58,6 +58,13 @@
       }
     }];
 
+    vm.menu = [
+      {
+        name: "Usuários",
+        route: "settings.users_list"
+      }
+    ];
+
     vm.hasAnyUserSelected = hasAnyUserSelected;
     vm.toggleAll = toggleAll;
     vm.toggleUser = toggleUser;
@@ -66,9 +73,15 @@
     vm.isIndeterminate = isIndeterminate;
     vm.offset = offset;
     vm.showRemoveConfirm = showRemoveConfirm;
+    vm.noUserSelected = noUserSelected;
+    vm.removeSelectedUsers = removeSelectedUsers;
 
     function hasAnyUserSelected() {
       return vm.selectedUsers.length > 0;
+    }
+
+    function noUserSelected() {
+      return vm.selectedUsers.length === 0;
     }
 
     function toggleAll() {
@@ -96,7 +109,7 @@
     }
 
     function isAllUsersSelected(selectedUsers) {
-      return selectedUsers.length == vm.users.length;
+      return vm.users.length !== 0 && selectedUsers.length == vm.users.length;
     }
 
     function isIndeterminate() {
@@ -139,6 +152,13 @@
       if (index > -1) {
         users.splice(index, 1);
       }
+    }
+
+    function removeSelectedUsers() {
+      angular.forEach(vm.selectedUsers, function(selectedUser) {
+        removeUserFromList(vm.users, selectedUser);
+      });
+      vm.selectedUsers = [];
     }
 
   }

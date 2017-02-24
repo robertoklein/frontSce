@@ -1,14 +1,25 @@
+<app-feature-bar title="Configurações" tabs="vm.menu"></app-feature-bar>
+
 <div class="md-padding">
   <md-card>
-    <md-toolbar class="card-toolbar md-hue-2">
-      <div class="md-toolbar-tools card-toolbar-tools">
+    <md-toolbar class="tl-action-bar md-accent md-hue-1" ng-if="vm.hasAnyUserSelected()">
+      <div class="md-toolbar-tools">
+        <span>{{vm.selectedUsers.length}} selecionados</span>
+        <span flex></span>
+        <md-button ng-if="!vm.isAllUsersSelected(vm.selectedUsers)" ng-click="vm.toggleAll()" aria-label="Selecionar todos os usuários">
+          Selecionar Todos os {{vm.users.length}}
+        </md-button>
+        <md-button class="md-icon-button" ng-click="vm.removeSelectedUsers()" aria-label="Remover usuários selecionados">
+          <md-icon>delete</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-toolbar class="tl-action-bar md-hue-2" ng-if="vm.noUserSelected()">
+      <div class="md-toolbar-tools">
         <md-input-container md-no-float class="search-field" flex>
           <md-icon>search</md-icon>
           <input ng-model="vm.search" type="text" placeholder="Pesquisar">
         </md-input-container>
-        <md-button class="md-icon-button" ng-show="vm.hasAnyUserSelected()" aria-label="Remover usuários selecionados">
-          <md-icon>delete</md-icon>
-        </md-button>
         <md-button class="md-raised md-accent" ui-sref="settings.users_form" aria-label="Adicionar Usuário">
           Adicionar Usuário
         </md-button>
