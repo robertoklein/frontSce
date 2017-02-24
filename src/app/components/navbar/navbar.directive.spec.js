@@ -17,10 +17,7 @@
       // spyOn(_$window_, 'moment').and.callThrough();
       // $window = _$window_;
 
-      timeInMs = new Date();
-      timeInMs = timeInMs.setHours(timeInMs.getHours() - 24);
-
-      el = angular.element('<app-navbar creation-date="' + timeInMs + '"></app-navbar>');
+      el = angular.element('<app-navbar></app-navbar>');
 
       $compile(el)($rootScope.$new());
       $rootScope.$digest();
@@ -34,17 +31,7 @@
 
     it('should have isolate scope object with instanciate members', function() {
       expect(vm).toEqual(jasmine.any(Object));
-
-      expect(vm.creationDate).toEqual(jasmine.any(Number));
-      expect(vm.creationDate).toEqual(timeInMs);
-
-      expect(vm.relativeDate).toEqual(jasmine.any(String));
-      expect(vm.relativeDate).toEqual('a day ago');
     });
 
-    // it('should call Moment', function() {
-    //   console.log($window.moment)
-    //   expect($window.moment).toHaveBeenCalled();
-    // });
   });
 })();
