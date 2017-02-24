@@ -6,7 +6,7 @@
     .controller('SettingsUsersListController', SettingsUsersListController);
 
   /** @ngInject */
-  function SettingsUsersListController() {
+  function SettingsUsersListController($mdDialog) {
     var vm = this;
 
     vm.selectedUsers = [];
@@ -63,6 +63,9 @@
     vm.toggleUser = toggleUser;
     vm.isUserSelected = isUserSelected;
     vm.isAllUsersSelected = isAllUsersSelected;
+    vm.isIndeterminate = isIndeterminate;
+    vm.offset = offset;
+    vm.showRemoveConfirm = showRemoveConfirm;
 
     function hasAnyUserSelected() {
       return vm.selectedUsers.length > 0;
@@ -95,5 +98,48 @@
     function isAllUsersSelected(selectedUsers) {
       return selectedUsers.length == vm.users.length;
     }
+
+    function isIndeterminate() {
+      return vm.selectedUsers.length !== 0 &&
+        vm.selectedUsers.length !== vm.users.length;
+    }
+
+    function offset() {
+      return (vm.page - 1) * vm.limit;
+    }
+
+    function showRemoveConfirm(event, user) {
+      // Appending dialog to document.body to cover sidenav in docs app
+      var confirm = $mdDialog.confirm()
+        .title('Excluir Usuário')
+        .textContent('Nome do usuário: ' + user.name)
+        .ariaLabel('Lucky day')
+        .targetEvent(event)
+        .ok('Excluir')
+        .cancel('Cancelar');
+
+      $mdDialog.show(confirm).then(onConfirmRemove);
+
+      function onConfirmRemove() {
+        removeUser(user);
+      }
+    }
+
+    function removeUser(user) {
+      removeUserFromList(vm.users, user);
+      unselectedUser(user);
+    }
+
+    function unselectedUser(user) {
+      removeUserFromList(vm.selectedUsers, user);
+    }
+
+    function removeUserFromList(users, user) {
+      var index = users.indexOf(user);
+      if (index > -1) {
+        users.splice(index, 1);
+      }
+    }
+
   }
 })();
