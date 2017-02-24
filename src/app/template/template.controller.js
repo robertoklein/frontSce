@@ -14,9 +14,10 @@
       email: 'anderson.davi@pti.org.br'
     };
 
-    vm.sidenavLeft = $mdSidenav('sidenav-left');
+    vm.sidenavLeft = null;
 
     $scope.$on('$stateChangeSuccess', function() {
+      vm.sidenavLeft = $mdSidenav('sidenav-left');
       vm.sidenavLeft.close();
     });
   }
