@@ -1,25 +1,39 @@
 .main-content {
   background: inherit;
+
+  md-toolbar .md-subheader {
+    color: inherit;
+    background-color: inherit;
+
+    .md-subheader-inner {
+      padding: 16px 16px 0 16px;
+    }
+  }
 }
 
-.md-toolbar-tools.card-toolbar-tools {
-  font-size: 14px;
-  height: 64px;
-  line-height: 64px;
-  min-height: 64px;
-  overflow-y: hidden;
-  position: inherit;
-}
+/**
+ * Table List Action Bar
+ */
+.tl-action-bar {
+  .md-toolbar-tools {
+    font-size: 14px;
+    height: 64px;
+    line-height: 64px;
+    min-height: 64px;
+    overflow-y: hidden;
+    position: inherit;
+  }
 
-.md-toolbar-tools.card-toolbar-tools .search-field {
-  line-height: 36px;
-  height: 36px;
-  margin: 0;
-
-  .md-input {
-    line-height: 22px;
+  .md-toolbar-tools .search-field {
+    line-height: 36px;
     height: 36px;
-    border-color: transparent;
+    margin: 0;
+
+    .md-input {
+      line-height: 22px;
+      height: 36px;
+      border-color: transparent;
+    }
   }
 }
 
@@ -35,7 +49,6 @@ md-card {
     }
   }
 }*/
-
 
 .row-options-menu > md-menu-item {
   min-height: 36px;
