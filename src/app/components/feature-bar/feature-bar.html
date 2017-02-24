@@ -1,0 +1,19 @@
+<md-toolbar class="md-hue-1">
+  <md-subheader ng-if="vm.subtitle">{{vm.subtitle}}</md-subheader>
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" ng-if="vm.subtitle" ui-sref="{{vm.srefBack}}">
+      <md-icon>arrow_back</md-icon>
+    </md-button>
+    <h2 flex md-truncate>{{vm.title}}</h2>
+  </div>
+</md-toolbar>
+
+<div class="white-background" ng-if="vm.tabs">
+  <md-nav-bar
+    md-selected-nav-item="vm.currentTab"
+    nav-bar-aria-label="navigation links">
+    <md-nav-item ng-repeat="item in vm.tabs" md-nav-sref="{{item.route}}" name="{{item.route}}">
+      {{item.name}}
+    </md-nav-item>
+  </md-nav-bar>
+</div>
