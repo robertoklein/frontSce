@@ -1,39 +1,31 @@
 (function() {
   'use strict';
 
-  describe('controllers', function(){
+  describe('TemplateController', function(){
     var vm;
-    var $timeout;
-    var toastr;
+    var $scope;
+    var $mdSidenav;
 
     beforeEach(module('templateWeb'));
-    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_) {
-      spyOn(_webDevTec_, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
-      spyOn(_toastr_, 'info').and.callThrough();
+    beforeEach(inject(function(_$controller_, _$rootScope_, _$mdSidenav_) {
+      $scope = _$rootScope_.$new();
 
-      vm = _$controller_('TemplateController');
-      $timeout = _$timeout_;
-      toastr = _toastr_;
+      vm = _$controller_('TemplateController', {$scope: $scope});
+      $mdSidenav = _$mdSidenav_;
+
+      spyOn(vm.sidenavLeft, 'close');
     }));
 
-    it('should have a timestamp creation date', function() {
-      expect(vm.creationDate).toEqual(jasmine.any(Number));
+    it('deve ter uma instância do usuário autenticado ', function() {
+      expect(vm.user).not.toBe(null);
     });
 
-    it('should define animate class after delaying timeout ', function() {
-      $timeout.flush();
-      expect(vm.classAnimation).toEqual('rubberBand');
+    it('deve fechar sidenav esquerdo ao mudar de rota ', function() {
+      vm.sidenavLeft.open();
+      $scope.$emit('$stateChangeSuccess');
+      expect(vm.sidenavLeft.close).toHaveBeenCalled();
     });
 
-    it('should show a Toastr info and stop animation when invoke showToastr()', function() {
-      vm.showToastr();
-      expect(toastr.info).toHaveBeenCalled();
-      expect(vm.classAnimation).toEqual('');
-    });
 
-    it('should define more than 5 awesome things', function() {
-      expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-      expect(vm.awesomeThings.length === 5).toBeTruthy();
-    });
   });
 })();
