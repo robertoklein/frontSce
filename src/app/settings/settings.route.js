@@ -6,7 +6,9 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($stateProvider) {
+  function routerConfig($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.when('/settings', 'settings/users');
+
     $stateProvider
       .state('settings', {
         url: '/settings',
