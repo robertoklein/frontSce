@@ -4,7 +4,7 @@
       <div class="md-toolbar-tools card-toolbar-tools">
         <md-input-container md-no-float class="search-field" flex>
           <md-icon>search</md-icon>
-          <input ng-model="user.phone" type="text" placeholder="Pesquisar">
+          <input ng-model="vm.search" type="text" placeholder="Pesquisar">
         </md-input-container>
         <md-button class="md-icon-button" ng-show="vm.hasAnyUserSelected()" aria-label="Remover usuários selecionados">
           <md-icon>delete</md-icon>
@@ -32,7 +32,7 @@
         </tr>
         </thead>
         <tbody md-body>
-        <tr md-row ng-repeat="user in vm.users | limitTo: vm.limit: vm.offset()">
+        <tr md-row ng-repeat="user in vm.users | filter: vm.search | limitTo: vm.limit: vm.offset()">
           <td md-cell>
             <md-checkbox ng-click="vm.toggleUser(user)" ng-checked="vm.isUserSelected(user, vm.selectedUsers)" aria-label="Selecionar usuário {{user.name}}"></md-checkbox>
           </td>
