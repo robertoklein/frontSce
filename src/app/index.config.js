@@ -23,7 +23,10 @@
         'hue-1': '600',
         'hue-2': '100'
       })
-      .accentPalette('blue');
+      .accentPalette('blue', {
+        'default': '500',
+        'hue-1': '50'
+      });
   }
 
 })();
