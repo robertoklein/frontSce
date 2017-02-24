@@ -65,8 +65,6 @@ md-card {
   }
 }
 
-
-
 .main-sidenav {
 
   max-width: 256px;
@@ -84,6 +82,22 @@ md-card {
     margin: 0;
   }
 
+  md-list-item .md-list-item-inner > md-icon:first-child:not(.md-avatar-icon) {
+    margin-top: 12px;
+  }
+
+  md-list-item._md-button-wrap > div.md-button {
+    font-weight: 500;
+  }
+
+  // FIXME atribuir cor conforme tema definido.
+  md-list-item.active {
+    color: #039be5;
+
+    md-icon {
+      color: #039be5;
+    }
+  }
 }
 
 .main-sidenav.md-locked-open {
