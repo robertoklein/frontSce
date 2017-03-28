@@ -61,7 +61,7 @@ md-card {
     text-align: right;
     padding: 0;
     .md-button.md-icon-button {
-      margin: 0;
+      margin: 0 10px 0 0;
     }
   }
 
@@ -76,6 +76,28 @@ md-card {
   table.md-table tbody.md-body > tr.md-row:hover {
     background-color: #eee;
   }
+
+  md-card-container.tl-details {
+    padding: 0px 24px 24px 24px;
+  }
+
+  md-card-container div.tl-details-input-container {
+    padding-bottom: 4px;
+    padding-top: 24px;
+  }
+}
+
+.tl-details-input-container > label {
+    color: rgba(0,0,0,0.54);
+    display: block;
+    font-size: 13px;
+    padding-bottom: 8px;
+}
+
+.tl-details-input-container > p {
+    font-size: 16px;
+    margin: 0;
+    word-wrap: break-word;
 }
 
 .main-sidenav {

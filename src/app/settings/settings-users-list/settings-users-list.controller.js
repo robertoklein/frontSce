@@ -12,40 +12,85 @@
     vm.selectedUsers = [];
     vm.users = [
       {
+        id: 1,
         name: 'Alanna',
-        email: 'alanna@teste.com'
+        email: 'alanna@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 2,
         name: 'Anderson',
-        email: 'anderson@teste.com'
+        email: 'anderson@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 3,
         name: 'Jean',
-        email: 'jean@teste.com'
+        email: 'jean@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 4,
         name: 'Alanna',
-        email: 'alanna@teste.com'
+        email: 'alanna@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 5,
         name: 'Anderson',
-        email: 'anderson@teste.com'
+        email: 'anderson@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 6,
         name: 'Jean',
-        email: 'jean@teste.com'
+        email: 'jean@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 7,
         name: 'Alanna',
-        email: 'alanna@teste.com'
+        email: 'alanna@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 8,
         name: 'Anderson',
-        email: 'anderson@teste.com'
+        email: 'anderson@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       },
       {
+        id: 9,
         name: 'Jean',
-        email: 'jean@teste.com'
+        email: 'jean@teste.com',
+        address: 'Rua jordão, 333. Conjunto Libra 3. Foz do Iguaçu, PR.',
+        cpf: '000.000.000-00',
+        rg: '0.000.000-0',
+        phone: '(45) 99556624'
       }
     ];
 

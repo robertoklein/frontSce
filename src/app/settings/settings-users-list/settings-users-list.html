@@ -39,6 +39,9 @@
           </th>
           <th md-column>Nome</th>
           <th md-column>Email</th>
+          <th md-column>RG</th>
+          <th md-column>CPF</th>
+          <th md-column>Telefone</th>
           <th md-column></th>
         </tr>
         </thead>
@@ -49,23 +52,13 @@
           </td>
           <td md-cell>{{user.name}}</td>
           <td md-cell>{{user.email}}</td>
+          <td md-cell>{{user.rg}}</td>
+          <td md-cell>{{user.cpf}}</td>
+          <td md-cell>{{user.phone}}</td>
           <td md-cell class="row-actions">
-            <md-button class="md-icon-button" aria-label="Visualizar usuário {{user.name}}" ng-click="">
+            <md-button class="md-icon-button" aria-label="Visualizar usuário {{user.name}}" ui-sref="settings.users_view({id: user.id})">
               <md-icon>info_outline</md-icon>
             </md-button>
-            <md-menu>
-              <md-button aria-label="Mais opções para {{user.name}}" class="md-icon-button" ng-click="$mdMenu.open()">
-                <md-icon>more_vert</md-icon>
-              </md-button>
-              <md-menu-content class="row-options-menu">
-                <md-menu-item>
-                  <md-button>Editar</md-button>
-                </md-menu-item>
-                <md-menu-item>
-                  <md-button ng-click="vm.showRemoveConfirm($event, user)">Excluir</md-button>
-                </md-menu-item>
-              </md-menu-content>
-            </md-menu>
           </td>
         </tr>
         </tbody>
