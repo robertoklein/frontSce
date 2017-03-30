@@ -35,7 +35,7 @@
         id: 5,
         name: 'm',
         precision: 5,
-      },
+      }
     ];
 
     vm.limit = 5;

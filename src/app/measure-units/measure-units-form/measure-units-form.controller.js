@@ -17,11 +17,7 @@
     init();
 
     function init() {
-      if (unit) {
-        vm.title = "Editar Unidade de Medida";
-      } else {
-        vm.title = "Nova Unidade de Medida";
-      }
+      vm.title = vm.unit ? "Editar Unidade de Medida" : "Nova Unidade de Medida";
     }
 
     function hide() {
