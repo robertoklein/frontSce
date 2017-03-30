@@ -1,0 +1,76 @@
+<app-feature-bar title="Unidades de Medida"></app-feature-bar>
+
+<div class="md-padding" layout="column" layout-align="center center">
+  <md-card class="card-sm">
+    <md-toolbar class="tl-action-bar md-accent md-hue-1" ng-if="vm.hasAnyUnitSelected()">
+      <div class="md-toolbar-tools">
+        <span>{{vm.selectedUnits.length}} selecionados</span>
+        <span flex></span>
+        <md-button ng-if="!vm.isAllUnitsSelected(vm.selectedUnits)" ng-click="vm.toggleAll()" aria-label="Selecionar todas as unidades">
+          Selecionar Todas as {{vm.units.length}}
+        </md-button>
+        <md-button class="md-icon-button" ng-click="vm.removeSelectedUnits()" aria-label="Remover unidades selecionadas">
+          <md-icon>delete</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-toolbar class="tl-action-bar md-hue-2" ng-if="vm.noUnitSelected()">
+      <div class="md-toolbar-tools">
+        <md-input-container md-no-float class="search-field" flex>
+          <md-icon>search</md-icon>
+          <input ng-model="vm.search" type="text" placeholder="Pesquisar">
+        </md-input-container>
+        <md-button class="md-raised md-accent" ng-click="vm.showEditPrompt($event)" aria-label="Adicionar Unidade">
+          Adicionar Unidade
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-table-container>
+      <table md-table>
+        <thead md-head>
+        <tr md-row>
+          <th md-column>
+            <md-checkbox
+              ng-click="vm.toggleAll()"
+              ng-checked="vm.isAllUnitsSelected(vm.selectedUnits)"
+              md-indeterminate="vm.isIndeterminate()"
+              aria-label="Selecionar todas as unidades">
+            </md-checkbox>
+          </th>
+          <th md-column>Unidade</th>
+          <th md-column>Precisão</th>
+          <th md-column></th>
+        </tr>
+        </thead>
+        <tbody md-body>
+        <tr md-row ng-repeat="unit in vm.units | filter: vm.search | limitTo: vm.limit: vm.offset()">
+          <td md-cell>
+            <md-checkbox ng-click="vm.toggleUnit(unit)" ng-checked="vm.isUnitSelected(unit, vm.selectedUnits)" aria-label="Selecionar unidade {{unit.name}}"></md-checkbox>
+          </td>
+          <td md-cell>{{unit.name}}</td>
+          <td md-cell>{{unit.precision}}</td>
+          <td md-cell class="row-actions">
+            <md-menu>
+              <md-button aria-label="Mais opções para {{unit.name}}" class="md-icon-button" ng-click="$mdMenu.open()">
+                <md-icon>more_vert</md-icon>
+              </md-button>
+              <md-menu-content class="row-options-menu">
+                <md-menu-item>
+                  <md-button ng-click="vm.showEditPrompt($event, unit)">Editar</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="vm.showRemoveConfirm($event, unit)">Excluir</md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <md-table-pagination
+        md-limit="vm.limit" md-page="vm.page" md-total="{{vm.units.length}}" md-limit-options="vm.limitOptions" flex
+        md-label="{page: 'Página:', rowsPerPage: 'Itens por página:', of: 'de'}">
+      </md-table-pagination>
+    </md-table-container>
+  </md-card>
+</div>
