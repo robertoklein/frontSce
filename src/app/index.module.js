@@ -12,7 +12,8 @@
       'ui.router',
       'ngMaterial',
       'toastr',
-      'md.data.table'
+      'md.data.table',
+      'redirectTo'
     ]);
 
 })();

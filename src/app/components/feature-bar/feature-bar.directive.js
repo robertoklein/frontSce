@@ -14,7 +14,6 @@
         title: '@',
         subtitle: '@',
         srefBack: '@',
-        srefOpts: '@',
         tabs: '='
       },
       controller: FeatureBarController,
