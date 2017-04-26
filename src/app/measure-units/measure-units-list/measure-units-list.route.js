@@ -8,9 +8,8 @@
   /** @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
-      .state('units', {
-        url: '/units',
-        parent: 'template',
+      .state('units.list', {
+        url: '',
         templateUrl: 'app/measure-units/measure-units-list/measure-units-list.html',
         controller: 'MeasureUnitsListController',
         controllerAs: 'vm'
