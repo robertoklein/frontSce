@@ -23,6 +23,7 @@ function browserSyncInit(baseDir, browser) {
 
   var server = {
     baseDir: baseDir,
+    middleware: proxyMiddleware('/api',{target: "http://127.0.0.1:8080"}),
     routes: routes
   };
 
@@ -37,7 +38,7 @@ function browserSyncInit(baseDir, browser) {
 
   browserSync.instance = browserSync.init({
     startPath: '/',
-    server: server,
+    server : server,
     browser: browser,
     notify: false
   });

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('templateWeb')
+    .module('SceApp')
     .config(config);
 
   /** @ngInject */
@@ -18,12 +18,12 @@
     toastrConfig.progressBar = true;
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('grey', {
+      .primaryPalette('blue', {
         'default': '800',
         'hue-1': '600',
         'hue-2': '100'
       })
-      .accentPalette('blue', {
+      .accentPalette('grey', {
         'default': '500',
         'hue-1': '50'
       });

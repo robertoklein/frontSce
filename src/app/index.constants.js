@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('templateWeb')
+    .module('SceApp')
     .constant('malarkey', malarkey)
     .constant('moment', moment);
 

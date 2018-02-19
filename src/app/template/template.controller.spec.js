@@ -6,7 +6,7 @@
     var $scope;
     var $mdSidenav;
 
-    beforeEach(module('templateWeb'));
+    beforeEach(module('SceApp'));
     beforeEach(inject(function(_$controller_, _$rootScope_, _$mdSidenav_) {
       $scope = _$rootScope_.$new();
 

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('templateWeb')
+  angular.module('SceApp')
     .factory('User', User)
     .factory('UserService', UserService);
 

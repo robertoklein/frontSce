@@ -7,26 +7,30 @@
   <!--
    Não foi criado uma diretiva por problemas de layout.
   -->
-  <md-sidenav
-    layout-fill
-    class="md-sidenav-left main-sidenav"
-    md-component-id="sidenav-left"
-    md-is-locked-open="$mdMedia('gt-sm')"
+  <md-sidenav layout-fill class="md-sidenav-left main-sidenav" md-component-id="sidenav-left" md-is-locked-open="$mdMedia('gt-sm')"
     md-whiteframe="4">
 
     <md-content layout-padding>
       <md-list>
         <md-list-item ui-sref="main" ui-sref-active="active">
           <md-icon>home</md-icon>
-          <p>Visão Geral</p>
+          <p>Principal</p>
         </md-list-item>
         <md-list-item ui-sref="settings" ui-sref-active="active">
           <md-icon>settings</md-icon>
-          <p>Configurações</p>
+          <p>Gerenciamento</p>
         </md-list-item>
         <md-list-item ui-sref="units" ui-sref-active="active">
           <md-icon>local_offer</md-icon>
-          <p>Unidades de Medida</p>
+          <p>Categorias</p>
+        </md-list-item>
+        <md-list-item ui-sref="units" ui-sref-active="active">
+          <md-icon>local_offer</md-icon>
+          <p>Equipamentos</p>
+        </md-list-item>
+        <md-list-item ui-sref="units" ui-sref-active="active">
+          <md-icon>local_offer</md-icon>
+          <p>Usuários</p>
         </md-list-item>
       </md-list>
     </md-content>

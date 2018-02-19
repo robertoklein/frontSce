@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('templateWeb')
+    .module('SceApp')
     .directive('appNavbar', appNavbar);
 
   /** @ngInject */

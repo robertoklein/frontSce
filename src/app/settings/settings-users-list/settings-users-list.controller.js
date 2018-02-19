@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('templateWeb')
+    .module('SceApp')
     .controller('SettingsUsersListController', SettingsUsersListController);
 
   /** @ngInject */

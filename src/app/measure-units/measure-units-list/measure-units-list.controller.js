@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('templateWeb')
+    .module('SceApp')
     .controller('MeasureUnitsListController', MeasureUnitsListController);
 
   /** @ngInject */
