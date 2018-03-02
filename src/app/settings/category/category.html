@@ -1,0 +1,47 @@
+<div class="md-padding" layout="column" layout-align="center center">
+    <md-card class="card-sm">
+      <md-toolbar class="tl-action-bar md-hue-2">
+        <div class="md-toolbar-tools">
+          <md-input-container md-no-float class="search-field" flex>
+            <md-icon>search</md-icon>
+            <input ng-model="vm.search" type="text" placeholder="Pesquisar">
+          </md-input-container>
+          <md-button class="md-raised md-accent" ng-click="vm.newCategory()">
+            Nova Categoria
+          </md-button>
+        </div>
+      </md-toolbar>
+  
+      <md-table-container>
+        <table md-table>
+          <thead md-head>
+            <tr md-row>
+              <th md-column width="20%">Código</th>
+              <th md-column width="60%">Nome</th>
+              <th md-column></th>
+            </tr>
+          </thead>
+          <tbody md-body>
+            <tr md-row ng-repeat="category in vm.allCategories | filter:vm.search">
+              <td md-cell>
+                {{category.id}}
+              </td>
+              <td md-cell>
+                {{category.name}}
+              </td>
+              <td md-cell>
+                <div layout="row">
+                  <md-button class="md-icon-button" ng-click="vm.showConfirmRemove(category)">
+                    <md-icon>delete</md-icon>
+                  </md-button>
+                  <md-button class="md-icon-button" ng-click="vm.editCategory(category)">
+                    <md-icon>mode_edit</md-icon>
+                  </md-button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+    </md-card>
+  </div>

@@ -1,0 +1,30 @@
+<md-dialog aria-label="cadastro de categorias">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Cadastro de categorias</h2>
+      <span flex></span>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div layout="column" ng-cloak>
+      <md-content layout-padding>
+        <form name="categoryForm">
+          <md-input-container class="md-block">
+            <label>Nome da categoria</label>
+            <input ng-required="true" name="input" ng-model="vm.category.name">
+          </md-input-container>
+        </form>
+      </md-content>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+    <span flex></span>
+    <md-button ng-click="vm.cancel()">
+      Cancelar
+    </md-button>
+    <md-button class="md-raised md-primary" ng-click="vm.insertCategory()" ng-disabled="!categoryForm.$valid">
+      Confirmar
+    </md-button>
+  </md-dialog-actions>
+
+</md-dialog>

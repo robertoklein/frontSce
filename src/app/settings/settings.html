@@ -1,1 +1,94 @@
-<div ui-view></div>
+<md-content>
+    <div layout-margin layout-gt-md="row" class="layout-margin ng-scope layout-gt-md-row">
+      <!-- primeiro card -->
+      <md-card flex md-colors="{background: '{{vm.dashboardAdmBackground}}'}">
+        <md-card-content layout="row">
+          <div layout="column" flex="80" layout-align="center left">
+            <span class="md-tittle"> Retiradas para hoje
+            </span>
+            <md-card-title-media layout-align="end end">
+              </md-card-title-media>
+            <span class="md-headline">
+              <strong>{{vm.dashboardAdm.dayPullout}}</strong>
+            </span>         
+           
+          </div>
+        </md-card-content>
+      </md-card>
+  
+      <!-- segundo card -->
+      <md-card flex md-colors="{background: '{{vm.dashboardAdmBackground}}'}">
+        <md-card-content layout="row">
+          <div layout="column" flex="80" layout-align="center left">
+            <span class="md-tittle"> Devoluções para hoje</span>
+            <span class="md-headline">
+              <strong>{{vm.dashboardAdm.dayRefound}}</strong>
+            </span>
+          </div>
+        </md-card-content>
+      </md-card>
+  
+      <!-- terceiro card -->
+      <md-card flex md-colors="{background: '{{vm.dashboardAdmBackground}}'}">
+        <md-card-content layout="row">
+          <div layout="column" flex="80" layout-align="center left">
+            <span class="md-tittle"> Em aberto</span>
+            <span class="md-headline">
+              <strong>{{vm.dashboardAdm.openLoans}}</strong>
+            </span>
+          </div>
+        </md-card-content>
+      </md-card>
+  
+      <!-- quarto card -->
+      <md-card flex md-colors="{background: '{{vm.dashboardAdmBackground}}'}">
+        <md-card-content layout="row">
+          <div layout="column" flex="80" layout-align="center left">
+            <span class="md-tittle"> Em atraso</span>
+            <span class="md-headline">
+              <strong>{{vm.dashboardAdm.lateLoans}}</strong>
+            </span>
+          </div>
+        </md-card-content>
+      </md-card>
+  
+      <md-card flex md-colors="{background: '{{vm.dashboardAdmBackground}}'}">
+        <md-card-content layout="row">
+          <div layout="column" flex="80" layout-align="center left">
+            <span class="md-tittle"> Agendamentos</span>
+            <span class="md-headline">
+              <strong>{{vm.dashboardAdm.totalSchedules}}</strong>
+            </span>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-content>
+  
+  <div ng-cloak>
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Empréstimos" data-ui-sref="settings.orders" md-active="'settings.orders' | isState">
+          <md-content class="md-padding">
+            <md-content data-ui-view="orders"></md-content>
+          </md-content>
+        </md-tab>
+        <md-tab label="Equipamentos" data-ui-sref="settings.equipments" md-active="'settings.equipments' | isState">
+            <md-content class="md-padding">
+              <md-content data-ui-view="equipments"></md-content>
+            </md-content>
+          </md-tab>
+          <md-tab label="Categorias" data-ui-sref="settings.category" md-active="'settings.category' | isState">
+              <md-content class="md-padding">
+                <md-content data-ui-view="category"></md-content>
+              </md-content>
+            </md-tab>
+            <md-tab label="usuários" data-ui-sref="settings.users" md-active="'settings.users' | isState">
+                <md-content class="md-padding">
+                  <md-content data-ui-view="users"></md-content>
+                </md-content>
+              </md-tab>
+        </md-tabs>
+        </md-content>
+  
+        

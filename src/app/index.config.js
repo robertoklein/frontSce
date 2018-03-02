@@ -6,9 +6,19 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, $mdThemingProvider) {
+  function config($logProvider, toastrConfig, $mdThemingProvider,$mdDateLocaleProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    $mdDateLocaleProvider.formatDate = function (date) {
+      if (date) {
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+    
+        return day + '/' + (monthIndex + 1) + '/' + year;
+      }
+    };
 
     // Set options third-party lib
     toastrConfig.allowHtml = true;

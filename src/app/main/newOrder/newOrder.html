@@ -1,0 +1,97 @@
+          <!-- inserção das datas-->
+          <md-content layout-padding>
+                <div layout="row" layout-align="center center">
+                  <div>
+                    <h4>Data da retirada</h4>
+                    <md-datepicker ng-model="vm.datePullOut" md-placeholder="Enter date" ng-change="vm.setDateRefound()" md-min-date="vm.todayDate" ></md-datepicker>
+                  </div>
+                  <div flex-offset="5">
+                    <h4>Data da devolução</h4>
+                    <md-datepicker ng-model="vm.dateRefound" md-placeholder="Enter date" ng-change="vm.resetTableEquipment()" md-min-date=vm.datePullOut></md-datepicker>
+                  </div>
+                </div>
+              </md-content>
+              <!-- inicia a barra de autoComplete -->
+              <md-content>
+                <form layout-padding>
+                  <div layout="row">
+                    <md-input-container flex>
+                      <md-autocomplete 
+                      md-search-text-change="vm.searchEquipment(vm.searchText)" 
+                      md-selected-item="vm.selectedItem"
+                      md-search-text="vm.searchText"
+                      md-no-cache="true"
+                      md-items="item in vm.searchEquipment(vm.searchText) "
+                      md-selected-item-change="vm.selectedItemChange(item)"
+                      md-item-text="item.name"
+                      md-min-length="2" 
+                      placeholder="Buscar pelo nome do equipamento"
+                      md-menu-class="autocomplete-custom-template">
+                        <md-item-template>
+                          <span ng-class="{'unavailable': item.unavailable}">{{item.name}}</span>
+                          <span> - </span>
+                          <span ng-class="{'unavailable': item.unavailable}">{{item.serial}}</span>
+                        </md-item-template>
+                      </md-autocomplete>
+                    </md-input-container>
+                    <md-input-container>
+                      <md-button class="md-raised md-primary" ng-click="vm.showAllEquipments()">
+                        Pesquisar todos
+                      </md-button>
+                    </md-input-container>
+                  </div>
+                </form>
+              </md-content>
+              <!-- Inicia a tabela-->
+              <md-content layout-padding ng-show="vm.equipments.length">
+                <md-card>
+                  <md-table-container>
+                    <table md-table>
+                      <thead md-head>
+                        <tr md-row>
+                          <th md-column>Nome</th>
+                          <th md-column>Categoria</th>
+                          <th md-column>Patrimônio</th>
+                          <th md-column>Descrição</th>
+                          <th md-column>Ações</th>
+                          <th md-column></th>
+                        </tr>
+                      </thead>
+                      <tbody md-body>
+                        <tr md-row ng-repeat="equipment in vm.equipments">
+                          <td md-cell>
+                            <span ng-class="{'unavailable': equipment.unavailable}">{{equipment.name}}</span>
+                          </td>
+                          <td md-cell>
+                            <span  ng-class="{'unavailable': equipment.unavailable}">{{equipment.category.name}}</span>                
+                          </td>
+                          <td md-cell>
+                            <span ng-class="{'unavailable': equipment.unavailable}">{{equipment.serial}}</span>
+                          </td>
+                          <td md-cell>
+                            <span ng-class="{'unavailable': equipment.unavailable}">{{equipment.description}}</span>
+                          </td>
+                          <td md-cell>
+                              <div layout="row">  
+                              <md-button class="md-icon-button" ng-click="vm.removeEquipment(equipment)">
+                                <md-icon>delete</md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" ng-click="$mdMenu.open()">
+                                    <md-icon>perm_contact_calendar</md-icon>
+                                    </md-button>
+                              </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </md-table-container>
+                </md-card>
+              </md-content>
+               <!-- content do botao confirmar -->
+              <md-content layout-padding ng-if="vm.equipments.length">
+                  <div layout="row" layout-align="center center">
+                      <md-button class="md-raised md-primary" ng-click="vm.showViewOrder()" ng-disabled="vm.hasUnavailableEquipments()">
+                          Confirmar ordem de empréstimo
+                        </md-button>
+                  </div>
+              </md-content>

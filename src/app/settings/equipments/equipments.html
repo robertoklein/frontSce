@@ -1,0 +1,55 @@
+<div class="md-padding" layout="column" layout-align="center center">
+  <md-card class="card-sm">
+    <md-toolbar class="tl-action-bar md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-input-container md-no-float class="search-field" flex>
+          <md-icon>search</md-icon>
+          <input ng-model="vm.search" type="text" placeholder="Pesquisar">
+        </md-input-container>
+        <md-button class="md-raised md-accent" ng-click="vm.newEquipment()" aria-label="Adicionar Unidade">
+          Novo Equipamento
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-table-container>
+      <table md-table>
+        <thead md-head>
+          <tr md-row>
+            <th md-column>Nome</th>
+            <th md-column>Patrimônio</th>
+            <th md-column>Categoria</th>
+            <th md-column>Descrição</th>
+            <th md-column></th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row ng-repeat="equipment in vm.allEquipments | filter:vm.search">
+            <td md-cell>
+              {{equipment.name}}
+            </td>
+            <td md-cell>
+              {{equipment.serial}}
+            </td>
+            <td md-cell>
+              {{equipment.category.name}}
+            </td>
+            <td md-cell>
+              {{equipment.description}}
+            </td>
+            <td md-cell>
+              <div layout="row">
+                <md-button class="md-icon-button" ng-click="vm.showConfirmRemove(equipment)">
+                  <md-icon>delete</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" ng-click="vm.editEquipment(equipment)">
+                  <md-icon>mode_edit</md-icon>
+                </md-button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+  </md-card>
+</div>

@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function routerConfig($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/newOrder');
   }
 
 })();

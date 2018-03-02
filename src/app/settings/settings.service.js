@@ -2,21 +2,21 @@
     'use strict';
 
     angular.module('SceApp')
-    .factory('dashboardFactory', function($resource){
+    .factory('dashboardAdmFactory', function($resource){
         //aqui o id do usuario vai vir pelo jwt
-        return $resource('/api/dashboard/user/1');
+        return $resource('/api/dashboard/admin');
     })
    
-    .service('mainService', function($q,dashboardFactory){
+    .service('settingsService', function($q,dashboardAdmFactory){
 
         var self = {
-            'getDashboardUsr' : getDashboardUsr,
+            'getDashboardAdm' : getDashboardAdm,
         };
 
-        function getDashboardUsr(){
+        function getDashboardAdm(){
             var d = $q.defer();
             //get pega um objeto
-            dashboardFactory.get(function(data){
+            dashboardAdmFactory.get(function(data){
                 d.resolve(data);
             }, function(error){
                 d.reject(error)

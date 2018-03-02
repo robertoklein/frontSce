@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -14,7 +14,6 @@
         controller: 'TemplateController',
         controllerAs: 'vm'
       });
-
   }
 
 })();

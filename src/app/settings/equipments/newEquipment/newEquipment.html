@@ -1,0 +1,53 @@
+<md-dialog aria-label="cadastro de equipamento">
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>cadastro de equipamento</h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+                <div layout="column" ng-cloak>
+                
+                  <md-content layout-padding>
+                    <form name="equipmentForm">
+                
+                      <md-input-container class="md-block">
+                        <label>Nome do equipamento</label>
+                        <input name="description" ng-model="vm.equipment.name" ng-required="true">
+                      </md-input-container>
+                
+                      <div layout="row">
+                        <md-input-container flex="50">
+                          <label>Patrimônio</label>
+                          <input ng-model="vm.equipment.serial" ng-required="true">
+                        </md-input-container>
+                
+                        <md-input-container flex="50">
+                          <label>Categoria</label>
+                          <md-select name="type" ng-model="vm.equipment.category" ng-required="true">
+                            <md-option ng-value="category" ng-repeat="category in vm.categories" ng-selected="vm.equipment.category">{{category.name}}</md-option>
+                          </md-select>
+                        </md-input-container>
+                      </div>
+                
+                      <md-input-container class="md-block">
+                        <label>Descrição</label>
+                        <input required ng-model="vm.equipment.description" ng-required="true"/>
+                      </md-input-container>
+                    </form>
+                  </md-content>
+                </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="vm.cancel()">
+                Cancelar
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="vm.insertEquipment()" ng-disabled="!equipmentForm.$valid">
+                Confirmar
+            </md-button>
+        </md-dialog-actions>
+  
+</md-dialog>

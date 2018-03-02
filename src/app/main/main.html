@@ -1,50 +1,63 @@
 <md-content>
-
-
   <div layout-margin layout-gt-md="row" class="layout-margin ng-scope layout-gt-md-row">
     <!-- primeiro card -->
-    <md-card flex md-colors="{background: 'default-primary-500'}">
+    <md-card flex md-colors="{background: '{{vm.dashboardUsrBackground}}'}">
       <md-card-content layout="row">
         <div layout="column" flex="80" layout-align="center left">
-          <span class="md-tittle"> Retiradas para hoje</span>
+          <span class="md-tittle"> Retiradas para hoje
+          </span>
+          <md-card-title-media layout-align="end end">
+          </md-card-title-media>
           <span class="md-headline">
-            <strong>{{vm.dashboardAdm.dayPullout}}</strong>
-          </span>          
+            <strong>{{vm.dashboardUsr.dayPullout}}</strong>
+          </span>
+
         </div>
       </md-card-content>
     </md-card>
 
     <!-- segundo card -->
-    <md-card flex md-colors="{background: 'default-primary-500'}">
+    <md-card flex md-colors="{background: '{{vm.dashboardUsrBackground}}'}">
       <md-card-content layout="row">
         <div layout="column" flex="80" layout-align="center left">
           <span class="md-tittle"> Devoluções para hoje</span>
           <span class="md-headline">
-            <strong>3</strong>
+            <strong>{{vm.dashboardUsr.dayRefound}}</strong>
           </span>
         </div>
       </md-card-content>
     </md-card>
 
     <!-- terceiro card -->
-    <md-card flex md-colors="{background: 'default-primary-500'}">
+    <md-card flex md-colors="{background: '{{vm.dashboardUsrBackground}}'}">
       <md-card-content layout="row">
         <div layout="column" flex="80" layout-align="center left">
           <span class="md-tittle"> Em aberto</span>
           <span class="md-headline">
-            <strong>5</strong>
+            <strong>{{vm.dashboardUsr.openLoans}}</strong>
           </span>
         </div>
       </md-card-content>
     </md-card>
 
     <!-- quarto card -->
-    <md-card flex md-colors="{background: 'default-primary-500'}">
+    <md-card flex md-colors="{background: '{{vm.dashboardUsrBackground}}'}">
       <md-card-content layout="row">
         <div layout="column" flex="80" layout-align="center left">
           <span class="md-tittle"> Em atraso</span>
           <span class="md-headline">
-            <strong>3</strong>
+            <strong>{{vm.dashboardUsr.lateLoans}}</strong>
+          </span>
+        </div>
+      </md-card-content>
+    </md-card>
+
+    <md-card flex md-colors="{background: '{{vm.dashboardUsrBackground}}'}">
+      <md-card-content layout="row">
+        <div layout="column" flex="80" layout-align="center left">
+          <span class="md-tittle"> Agendamentos</span>
+          <span class="md-headline">
+            <strong>{{vm.dashboardUsr.totalSchedules}}</strong>
           </span>
         </div>
       </md-card-content>
@@ -52,89 +65,17 @@
   </div>
 </md-content>
 
-<!-- inserção das datas-->
-<md-content layout-padding>
-  <div layout="row" layout-align="center center">
-    <div>
-      <h4>Data da retirada</h4>
-      <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
-    </div>
-    <div flex-offset="5">
-      <h4>Data da devolução</h4>
-      <md-datepicker ng-model="ctrl.myDate2" md-placeholder="Enter date"></md-datepicker>
-    </div>
-  </div>
-</md-content>
-<!-- inicia a barra de autoComplete -->
-<md-content>
-  <form layout-padding>
-    <div layout="row">
-      <md-input-container flex>
-        <md-autocomplete 
-        md-search-text-change="vm.searchEquipment(vm.searchText)" 
-        md-selected-item="vm.selectedItem"
-        md-search-text="vm.searchText"
-        md-no-cache="true"
-        md-items="item in vm.searchEquipment(vm.searchText) "
-        md-selected-item-change="vm.selectedItemChange(item)"
-        md-item-text="item.name"
-        md-min-length="2" 
-        placeholder="Buscar pelo nome do equipamento"
-        md-menu-class="autocomplete-custom-template">
-          <md-item-template>
-            <span>{{item.name}}</span>
-          </md-item-template>
-        </md-autocomplete>
-      </md-input-container>
-      <md-input-container>
-        <md-button class="md-raised md-primary">
-          Pesquisar todos
-        </md-button>
-      </md-input-container>
-    </div>
-  </form>
-</md-content>
-<!-- Inicia a tabela-->
-<md-content layout-padding>
-  <md-card>
-    <md-table-container>
-      <table md-table>
-        <thead md-head>
-          <tr md-row>
-            <th md-column>Nome</th>
-            <th md-column>Categoria</th>
-            <th md-column>Patrimônio</th>
-            <th md-column>Descrição</th>
-            <th md-column>Ações</th>
-            <th md-column></th>
-          </tr>
-        </thead>
-        <tbody md-body>
-          <tr md-row ng-repeat="equipment in vm.equipments">
-            <td md-cell>{{equipment.name}}</td>
-            <td md-cell>{{equipment.category.name}}</td>
-            <td md-cell></td>
-            <td md-cell>{{equipment.description}}</td>
-            <td md-cell></td>
-            <td md-cell class="row-actions">
-              <md-button class="md-icon-button" aria-label="Visualizar usuário {{user.name}}" ui-sref="settings.users_view({id: user.id})">
-                <md-icon>info_outline</md-icon>
-              </md-button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <md-table-pagination md-limit="vm.limit" md-page="vm.page" md-total="{{vm.users.length}}" md-limit-options="vm.limitOptions"
-        flex md-label="{page: 'Página:', rowsPerPage: 'Itens por página:', of: 'de'}">
-      </md-table-pagination>
-    </md-table-container>
-  </md-card>
-</md-content>
- <!-- content do botao confirmar -->
-<md-content layout-padding>
-    <div layout="row" layout-align="center center">
-        <md-button class="md-raised md-primary">
-            Confirmar ordem de empréstimo
-          </md-button>
-    </div>
-</md-content>
+<div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Nova ordem" data-ui-sref="main.newOrder" md-active="'main.newOrder' | isState">
+        <md-content class="md-padding">
+          <md-content data-ui-view="newOrder"></md-content>
+        </md-content>
+      </md-tab>
+
+      <md-tab label="Meus empréstimos" data-ui-sref="main.myOrders" md-active="'main.myOrders' | isState">
+        <md-content class="md-padding">
+          <md-content data-ui-view="myOrders"></md-content>
+        </md-content>
+      </md-tab>

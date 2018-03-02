@@ -1,0 +1,76 @@
+<md-dialog aria-label="Confirmação de ordem de empréstimo">
+    <form ng-cloak>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>Ver todos os equipamentos</h2>
+          <span flex></span>
+        </div>
+      </md-toolbar>
+  
+      <md-dialog-content>
+
+<div class="md-padding" layout="column" layout-align="center center">
+  <md-card class="card-sm">
+    <md-toolbar class="tl-action-bar md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-input-container md-no-float class="search-field" flex>
+          <md-icon>search</md-icon>
+          <input ng-model="search" type="text" placeholder="Pesquisar">
+        </md-input-container>
+      </div>
+    </md-toolbar>
+
+    <md-table-container>
+      <table md-table>
+        <thead md-head>
+        <tr md-row>
+          <th md-column>
+          </th>
+          <th md-column>Nome</th>
+          <th md-column>Categoria</th>
+          <th md-column>Patrimônio</th>
+          <th md-column>Descrição</th>
+          <th md-column></th>
+        </tr>
+        </thead>
+        <tbody md-body>
+        <tr md-row ng-repeat="equipment in vm.allEquipments | filter:search">
+          <td md-cell>
+            <md-checkbox ng-click="vm.toggleEquipment(equipment)" ng-disabled="equipment.unavailable" ng-checked="vm.isEquipmentSelected(equipment, vm.selectedEquipments)" aria-label="Selecionar unidade {{equipment.name}}"></md-checkbox>
+          </td>
+          <td md-cell>
+            <span ng-class="{'unavailable': equipment.unavailable}">{{equipment.name}}</span>
+          </td>
+          <td md-cell>
+            <span  ng-class="{'unavailable': equipment.unavailable}">{{equipment.category.name}}</span>                
+          </td>
+          <td md-cell>
+            <span ng-class="{'unavailable': equipment.unavailable}">{{equipment.serial}}</span>
+          </td>
+          <td md-cell>
+            <span ng-class="{'unavailable': equipment.unavailable}">{{equipment.description}}</span>
+          </td>
+          <td md-cell class="row-actions">
+      
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+  </md-card>
+</div>
+
+      </md-dialog-content>
+      <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="vm.cancel()">
+         Cancelar
+        </md-button>
+       
+        <md-button class="md-raised md-primary" ng-disabled="!vm.selectedEquipments.length" ng-click="vm.addEquipments()">
+          Confirmar
+        </md-button>
+      </md-dialog-actions>
+    </form>
+  </md-dialog>
+  
